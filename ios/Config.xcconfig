@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Tarteel
+//
+//  Created by Mohamed Moussa on 2019-08-01.
+//  Copyright © 2019 Crescent labs. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include? "tmp.xcconfig"
