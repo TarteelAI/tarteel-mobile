@@ -49,27 +49,23 @@ export default {
   aboutParagraph:
 `\
 ترتيل برنامج مجاني موجه للمسلمين كمصدر لتحديد مواقع و الرجوع لأجزاء من القرآن الكريم من خلال تقنيه تمييز الصوت. لا تنسى المساهمين في تطوير البرنامج من دعائك.
-\n\nالمساهمون:
-\nتصميم الشعار: رزان كعود
-\nتصميم البرنامج: تمجيد عبد الغفور
-\nالترجمه للعربي: محمد فهد
-\n\nو الشكر يعم كل من ساهم في مشروع:
-\nAlfanous
-\nTanzil.net
 `
   ,
 
   // Contact
   contactTitle: 'تواصل مع المطور',
-  contactParagraph: `\
-عندك اقتراح؟ واجهت مشكله تقنيه؟ تود التواصل مع المطور؟ ارسل لنا رساله.\
-\n\nملاحظه: خانه "البريد" و "الإسم" يمكن تركها فارغه إذا لا ترغب بردنا.\
-  `,
-  contactFormName: 'الإسم',
+  contactFormSubject: 'موضوع',
+  contactFormSubject1: 'تقرير الشوائب',
+  contactFormSubject2: 'سؤال',
+  contactFormSubject3: 'طلب المواصفات',
+  contactFormSubject4: 'شراكة',
+  contactFormSubject5: 'آخر',
   contactFormEmail: 'البريد الإكتروني',
   contactFormMessage: 'الرساله',
   contactFormSend: 'ارسل',
+  noEmailEntered: 'لم يتم ادخال البريد الإكتروني',
   noMessageEntered: 'لم يتم ادخال رساله',
+  noSubjectSelected: 'لم يتم تحديد موضوع',
   // sendingMessage: 'يتم ارسال رسالتك',
   messageSent: 'تم ارسال رسالتك',
 
@@ -97,7 +93,7 @@ export default {
   actionShare: 'شارك',
   shareWith: 'شارك على...',
   shareSubject: 'برنامج ترتيل',
-  shareMessage: `جرب هذا البرنامج الرائع «ترتيل». حمل البرنامج من هنا: https://tarteel.io/mobile`,
+  shareMessage: 'جرب هذا البرنامج الرائع «ترتيل». حمل البرنامج من هنا: https://tarteel.io/mobile',
   shareInstructions: 'حدد كل المواد التي تود ضمها إلى رسالتك:',
   shareArabicAyah: 'الآيه بالعربي',
   shareTranslationAyah: 'الآيه مترجمه',

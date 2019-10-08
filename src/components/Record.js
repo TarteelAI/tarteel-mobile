@@ -9,7 +9,7 @@ import Permissions from 'react-native-permissions';
 import RNANAndroidSettingsLibrary from 'react-native-android-settings-library';
 import I18n from '../i18n/i18n';
 import { performSearch } from '../network/requests';
-import { logError } from '../network/requests';
+import { logError } from '../network/errors';
 import { colourPrimary } from '../styles/colours';
 
 export default class Record extends Component {

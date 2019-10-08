@@ -48,29 +48,27 @@ export default {
   // About
   aboutTitle: 'About this app',
   aboutParagraph:
-`\
+'\
 Tarteel is a free application meant to provide Muslims with a \
 resource for locating and referencing pieces of the Quran through speech recognition. \
-Please keep its contributors in your prayers. \
-\n\nThe logo of this app is designed by Razan Qaoud and the app designs were made by \
-Thamjeeth Abdul Gaffoor. Arabic translation was done by Mohammed Fahad. \
-\n\nCredit is also due to all of the people who have contributed to the \
-projects Alfanous and Tanzil.net.\
-`
+Please keep its contributors in your prayers.\
+'
   ,
 
   // Contact
   contactTitle: 'Contact the developer',
-  contactParagraph: `\
-Have some feedback or a feature request? Found a bug? Interested in reaching the developer? \
-To get in touch, send a message below. Note that the "name" and "email" fields only need to \
-be filled in if you would like to be able to receive a reply.\
-  `,
-  contactFormName: 'Name',
+  contactFormSubject: 'Subject',
+  contactFormSubject1: 'Bug report',
+  contactFormSubject2: 'Question',
+  contactFormSubject3: 'Feature request',
+  contactFormSubject4: 'Partnership',
+  contactFormSubject5: 'Other',
   contactFormEmail: 'Email',
   contactFormMessage: 'Message',
   contactFormSend: 'Send',
+  noEmailEntered: 'No email entered',
   noMessageEntered: 'No message entered',
+  noSubjectSelected: 'No subject selected',
   // sendingMessage: 'Sending message',
   messageSent: 'Message sent',
 
@@ -83,10 +81,10 @@ be filled in if you would like to be able to receive a reply.\
   speechRecognition: 'Speech Recognition',
   microphone: 'Microphone',
   missingPermissionTitle: 'Missing Permission!',
-  missingPermissionExplanation: `\
+  missingPermissionExplanation: '\
 The action you are trying to do requires the "{{permissionName}}" permission. \
 Please allow this app to access that permission through the settings section of your device.\
-  `,
+  ',
   // disabledGoogleAppTitle: 'Disabled Package!',
   // disabledGoogleAppExplanation: `
   //   In order to use this app, you must have the Google app enabled. Please enable the Google app through the
@@ -102,7 +100,7 @@ Please allow this app to access that permission through the settings section of 
   actionShare: 'Share',
   shareWith: 'Share with...',
   shareSubject: 'Tarteel app',
-  shareMessage: `Check out this amazing app I've been using called Tarteel! Download it here: https://tarteel.io/mobile`,
+  shareMessage: 'Check out this amazing app I\'ve been using called Tarteel! Download it here: https://tarteel.io/mobile',
   shareInstructions: 'Select all of the items you want to include in the shared message:',
   shareArabicAyah: 'Arabic ayah',
   shareTranslationAyah: 'Translated ayah',

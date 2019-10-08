@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView, TextInput, Button, View, KeyboardAvoidingView, ActivityIndicator, I18nManager } from 'react-native';
+import { StyleSheet, ScrollView, TextInput, Button, View, KeyboardAvoidingView, ActivityIndicator, I18nManager } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 import Toast from 'react-native-root-toast';
 import I18n from '../i18n/i18n';
 import { contactDeveloper } from '../network/requests';
-import { logError } from '../network/requests';
+import { logError } from '../network/errors';
 import { colourPrimary } from '../styles/colours';
+
+const subjects = [
+  {
+    label: I18n.t('contactFormSubject1'),
+    value: 'bug',
+  },
+  {
+    label: I18n.t('contactFormSubject2'),
+    value: 'question',
+  },
+  {
+    label: I18n.t('contactFormSubject3'),
+    value: 'featureRequest',
+  },
+  {
+    label: I18n.t('contactFormSubject4'),
+    value: 'partnership',
+  },
+  {
+    label: I18n.t('contactFormSubject5'),
+    value: 'other',
+  },
+];
 
 export default class ContactPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      subject: '',
       email: '',
       message: '',
       loading: false,
@@ -18,13 +42,18 @@ export default class ContactPage extends Component {
   }
 
   onSend = () => {
-    const { name, email, message } = this.state;
+    const { subject, email, message } = this.state;
 
-    if (message.trim() === '') {
+    if (subject === '') {
+      Toast.show(I18n.t('noSubjectSelected'));
+    } else if (message.trim() === '') {
       Toast.show(I18n.t('noMessageEntered'));
+    } else if (email.trim() === '') {
+      // TODO: validate email
+      Toast.show(I18n.t('noEmailEntered'));
     } else {
       this.setState({ loading: true });
-      contactDeveloper(name, email, message, (err) => {
+      contactDeveloper(subject, email, message, (err) => {
         if (err) {
           logError(err.message);
           Toast.show(err.message);
@@ -48,14 +77,14 @@ export default class ContactPage extends Component {
               this.scrollView.scrollToEnd({animated: true});
             }}
           >
-            <Text style={styles.text}>{I18n.t('contactParagraph')}</Text>
             <View style={styles.inputUnderline}>
-              <TextInput
-                style={styles.input}
-                onChangeText={(name) => this.setState({name})}
-                value={this.state.name}
-                multiline={false}
-                placeholder={I18n.t('contactFormName')}
+              <RNPickerSelect
+                style={pickerSelectStyles}
+                placeholder={{label: I18n.t('contactFormSubject'), value: ''}}
+                items={subjects}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({subject: itemValue})
+                }
               />
             </View>
             <View style={styles.inputUnderline}>
@@ -129,5 +158,23 @@ const styles = StyleSheet.create({
   spinner: {
     justifyContent: 'flex-end',
     marginBottom: 10,
+  },
+  subjectPicker: {
+    height: 10,
+  },
+});
+
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    borderWidth: 0,
+    marginTop: 16,
+    fontSize: 16,
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
+  },
+  inputAndroid: {
+    borderWidth: 0,
+    marginTop: 16,
+    fontSize: 16,
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
   },
 });

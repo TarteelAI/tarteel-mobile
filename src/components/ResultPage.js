@@ -29,7 +29,7 @@ export default class ResultPage extends Component {
       return {
         surahNum: match.surahNum,
         ayahNum: match.ayahNum,
-      }
+      };
     });
     changeTranslation(translation, ayahs, (err, response) => {
       if (err) {
@@ -37,7 +37,7 @@ export default class ResultPage extends Component {
       } else {
         matches.forEach((match, idx) => {
           match.translationAyah = response.result[idx].translationAyah;
-        })
+        });
         this.setState({ matches });
       }
     });

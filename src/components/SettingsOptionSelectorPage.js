@@ -25,12 +25,12 @@ export default class SettingsOptionSelectorPage extends Component {
             <Text style={styles.optionText}>{displayText}</Text>
             <View style={styles.selectionIndicatorSpace}>
               {isSelected &&
-                <Image source={require("../assets/check.png")} style={styles.check} />
+                <Image source={require('../assets/check.png')} style={styles.check} />
               }
             </View>
           </View>
         </TouchableHighlight>
-      )
+      );
     });
 
     return (
@@ -74,5 +74,5 @@ const styles = StyleSheet.create({
     height: 24,
     width: 24,
     transform: [{scaleX: I18nManager.isRTL ? -1 : 1}],
-  }
+  },
 });

@@ -1,5 +1,5 @@
-const BASE_ROUTE = 'https://api.iqraapp.com/api';
+const BASE_ROUTE = 'https://api.tarteel.io';
 
 export {
   BASE_ROUTE,
-}
+};

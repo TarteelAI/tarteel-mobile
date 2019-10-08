@@ -1,18 +1,15 @@
-import Config from 'react-native-config';
 import I18n from '../i18n/i18n';
 import { BASE_ROUTE } from './constants';
 
 const performSearch = (query, translation, callback) => {
-  fetch(BASE_ROUTE + '/v3.0/search', {
+  fetch(BASE_ROUTE + '/iqra/search/', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       arabicText: query,
       translation,
-      apikey: Config.IQRA_API_KEY,
     }),
   })
   .then(response => {
@@ -28,19 +25,17 @@ const performSearch = (query, translation, callback) => {
   .catch(error => {
     callback(error, null);
   });
-}
+};
 
 const changeTranslation = (translation, ayahs, callback) => {
-  fetch(BASE_ROUTE + '/v3.0/translations', {
+  fetch(BASE_ROUTE + '/iqra/translations/', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       translation,
       ayahs,
-      apikey: Config.IQRA_API_KEY,
     }),
   })
   .then(response => {
@@ -56,20 +51,22 @@ const changeTranslation = (translation, ayahs, callback) => {
   .catch(error => {
     callback(error, null);
   });
-}
+};
 
-const contactDeveloper = (name, email, message, callback) => {
-  fetch(BASE_ROUTE + '/v1.0/email', {
+const contactDeveloper = (subject, email, message, callback) => {
+  fetch('https://7gjflh9pwi.execute-api.us-east-1.amazonaws.com/production/contact-us', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      name,
+      subject,
       email,
       message,
-      apikey: Config.IQRA_API_KEY,
+      receivers: [
+        'info@tarteel.io',
+        'info@iqraapp.com',
+      ],
     }),
   })
   .then(response => {
@@ -85,10 +82,10 @@ const contactDeveloper = (name, email, message, callback) => {
   .catch(error => {
     callback(error, null);
   });
-}
+};
 
 export {
   performSearch,
   changeTranslation,
   contactDeveloper,
-}
+};
