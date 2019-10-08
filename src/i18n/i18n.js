@@ -8,7 +8,7 @@ I18n.fallbacks = true;
 
 I18n.translations = {
   ar,
-  en
+  en,
 };
 
 // `Intl` exists, but it doesn't have the data we need, so load the
@@ -24,6 +24,6 @@ I18n.formatNumberForLocale = (number, locale) => {
   } else {
     return number;
   }
-}
+};
 
 export default I18n;

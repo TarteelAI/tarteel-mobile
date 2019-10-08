@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, I18nManager } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import I18n from './src/i18n/i18n';
@@ -104,7 +104,7 @@ class App extends Component {
         <StatusBar barStyle="light-content" backgroundColor={colourPrimaryDark} />
         <AppContainer />
       </View>
-    )
+    );
   }
 }
 

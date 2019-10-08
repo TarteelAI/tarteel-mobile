@@ -43,5 +43,5 @@ const styles = StyleSheet.create({
     fontSize: 26,
     marginBottom: 30,
     marginTop: 4,
-  }
+  },
 });

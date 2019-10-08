@@ -67,7 +67,7 @@ export default class Result extends PureComponent {
               <Text style={styles.arabicAyah}>{arabicAyah}</Text>
               <Text style={styles.translationAyah}>{translationAyah}</Text>
               <TouchableOpacity onPress={this._onShare} style={styles.shareContainer} activeOpacity={0.5}>
-                <Image source={require("../assets/share.png")} style={styles.share} />
+                <Image source={require('../assets/share.png')} style={styles.share} />
               </TouchableOpacity>
             </View>
           )}
@@ -133,5 +133,5 @@ const styles = StyleSheet.create({
     height: 24,
     width: 24,
     marginTop: 10,
-  }
+  },
 });

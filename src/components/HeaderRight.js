@@ -8,7 +8,7 @@ export default class HeaderRight extends Component {
         onPress={() => this.props.navigation.navigate('Settings', {onChangeTranslation: this.props.onChangeTranslation})}
         underlayColor="transparent"
       >
-        <Image source={require("../assets/settings.png")} style={styles.image} />
+        <Image source={require('../assets/settings.png')} style={styles.image} />
       </TouchableHighlight>
     );
   }

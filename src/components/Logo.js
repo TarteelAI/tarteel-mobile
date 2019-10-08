@@ -6,7 +6,7 @@ export default class Logo extends Component {
   render() {
     return (
       <View style={styles.imageContainer}>
-        <Image source={require("../assets/logo.png")} style={styles.image} />
+        <Image source={require('../assets/logo.png')} style={styles.image} />
       </View>
     );
   }

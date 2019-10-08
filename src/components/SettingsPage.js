@@ -5,7 +5,7 @@ import RNRestart from 'react-native-restart';
 import { Answers } from 'react-native-fabric';
 import { findBestAvailableLanguage } from 'react-native-localize';
 import I18n from '../i18n/i18n';
-import { logError } from '../network/requests';
+import { logError } from '../network/errors';
 import { colourPrimary, touchedSetting } from '../styles/colours';
 
 const TRANSLATION_SHORT_CODES = [
@@ -20,21 +20,23 @@ const TRANSLATION_SHORT_CODES = [
   'en-yusufali',
   'en-maududi',
   'en-shakir',
-  'en-transliteration'
+  'en-transliteration',
 ];
 
 const LANGUAGE_SHORT_CODES = [
   'en',
-  'ar'
+  'ar',
 ];
 
 export default class SettingsPage extends Component {
   constructor() {
     super();
     this.state = {
+      translationShortCode: null,
       translation: null,
+      languageShortCode: null,
       language: null,
-    }
+    };
   }
 
   async componentDidMount() {
@@ -45,7 +47,7 @@ export default class SettingsPage extends Component {
       if (!languageShortCode) {
         // Use most appropriate device language
         // Use English as the fallback in case the user does not use their device in any supported language
-        languageShortCode = findBestAvailableLanguage(LANGUAGE_SHORT_CODES) || 'en';
+        languageShortCode = findBestAvailableLanguage(LANGUAGE_SHORT_CODES).languageTag || 'en';
 
         this.setState({
           translationShortCode,
@@ -70,7 +72,7 @@ export default class SettingsPage extends Component {
   _renderSectionTitle = (title) => {
     return (
       <Text style={styles.sectionTitle}>{title.toUpperCase()}</Text>
-    )
+    );
   }
 
   _renderTouchableOption = (optionText, onPressAction, currentOptionSetting) => {
@@ -82,11 +84,11 @@ export default class SettingsPage extends Component {
             {currentOptionSetting &&
               <Text numberOfLines={1} style={styles.currentOptionSetting}>{currentOptionSetting}</Text>
             }
-            <Image source={require("../assets/chevron_right.png")} style={styles.chevron} />
+            <Image source={require('../assets/chevron_right.png')} style={styles.chevron} />
           </View>
         </View>
       </TouchableHighlight>
-    )
+    );
   }
 
   _onChangeTranslation = async (newTranslation) => {
@@ -117,7 +119,7 @@ export default class SettingsPage extends Component {
       return {
         displayText: I18n.t(value),
         value,
-      }
+      };
     });
 
     this.props.navigation.navigate(
@@ -156,7 +158,7 @@ export default class SettingsPage extends Component {
       return {
         displayText: I18n.t(value),
         value,
-      }
+      };
     });
 
     this.props.navigation.navigate(
@@ -196,7 +198,7 @@ export default class SettingsPage extends Component {
   }
 
   _openPrivacyPolicy() {
-    const url = 'https://iqraapp.com/privacy';
+    const url = 'https://www.tarteel.io/privacy';
     Linking.openURL(url).catch(err => logError(err.message));
   }
 
